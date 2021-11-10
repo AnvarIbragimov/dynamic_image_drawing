@@ -64,9 +64,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         sp_1.setOnItemSelectedListener { view, position, id, item ->
         }
 
-        speed_seekbar.onStopTrackingTouch { endPoint ->
+        speed_seekbar.onProgressChanged { endPoint ->
             endPoint?.let { process ->
-                tv_speed.text = "${process / 100} s"
+                tv_speed.text = "${Utils.formatCardBalance(process / 1000.0).toDouble()} s"
                 animationTime = process.toLong()
             }
         }
@@ -111,20 +111,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 fillSquare(bitmap, startPX, endX, startPY, endY, rc)
 
                 Handler(Looper.getMainLooper()).postDelayed({
-                    if (point.x > 30 && point.x <= bitmap.width)
-                        fillBlack(imageView, bitmap, Point(point.x - 30, point.y), tc, rc)
+                    if (startPX - 30 >= 0 && startPX - 30 <= bitmap.width)
+                        fillBlack(imageView, bitmap, Point(startPX - 30, point.y), tc, rc)
                 }, animationTime)
                 Handler(Looper.getMainLooper()).postDelayed({
-                    if (point.x >= 30 && point.x < bitmap.width)
-                        fillBlack(imageView, bitmap, Point(point.x + 30, point.y), tc, rc)
+                    if (startPX + 30 >= 30 && startPX + 30 < bitmap.width)
+                        fillBlack(imageView, bitmap, Point(startPX + 30, point.y), tc, rc)
                 }, animationTime)
                 Handler(Looper.getMainLooper()).postDelayed({
-                    if (point.y > 30 && point.y <= bitmap.height)
-                        fillBlack(imageView, bitmap, Point(point.x, point.y - 30), tc, rc)
+                    if (startPY - 30 >= 0 && startPY - 30 <= bitmap.height)
+                        fillBlack(imageView, bitmap, Point(point.x, startPY - 30), tc, rc)
                 }, animationTime)
                 Handler(Looper.getMainLooper()).postDelayed({
-                    if (point.y >= 30 && point.y < bitmap.height)
-                        fillBlack(imageView, bitmap, Point(point.x, point.y + 30), tc, rc)
+                    if (startPY + 30 >= 30 && startPY + 30 < bitmap.height)
+                        fillBlack(imageView, bitmap, Point(point.x, startPY + 30), tc, rc)
                 }, animationTime)
             }
             imageView.setImageBitmap(bitmap)

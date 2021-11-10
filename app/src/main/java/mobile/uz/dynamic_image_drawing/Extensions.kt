@@ -28,6 +28,17 @@ fun SeekBar.onStopTrackingTouch(onStopTrackingTouch: (Int?) -> Unit) {
     })
 }
 
+fun SeekBar.onProgressChanged(onProgressChanged: (Int?) -> Unit) {
+    this.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+            onProgressChanged.invoke(p0?.progress)
+        }
+
+        override fun onStartTrackingTouch(p0: SeekBar?) {}
+        override fun onStopTrackingTouch(p0: SeekBar?) {}
+    })
+}
+
 fun Spinner.onItemSelected(onItemSelected: (Int) -> Unit) {
     this.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {

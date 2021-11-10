@@ -95,18 +95,20 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:max="2000"
+                android:min="200"
+                android:progress="0"
                 android:progressBackgroundTint="@color/black"
                 android:progressTint="@color/purple_700"
-                android:thumbTint="@color/purple_500"
-                android:max="500"
-                android:progress="350"
-                android:min="2000" />
+                android:thumbTint="@color/purple_500" />
 
             <TextView
                 android:id="@+id/tv_speed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1 s"/>
+                android:text="0.2 s"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
