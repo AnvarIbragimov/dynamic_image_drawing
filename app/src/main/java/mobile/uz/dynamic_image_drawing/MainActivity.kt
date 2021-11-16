@@ -18,7 +18,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 showImageSize(iv_1)
             }
             R.id.bt_generate -> {
+                iv_1.setSquareSize(20)
                 iv_1.generateBitmap()
+                iv_2.setSquareSize(60)
                 iv_2.generateBitmap()
             }
         }
@@ -34,9 +36,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initBasics() {
-        iv_1.setSquareSize(20)
         iv_1.setReplaceColor(Color.RED)
-        iv_2.setSquareSize(30)
         iv_2.setReplaceColor(Color.YELLOW)
     }
 
