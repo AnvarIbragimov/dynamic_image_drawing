@@ -27,21 +27,15 @@
                 android:textStyle="bold"
                 tools:listitem="@layout/support_simple_spinner_dropdown_item" />
 
-            <ImageView
+            <mobile.uz.dynamic_image_drawing.MyImageView
                 android:id="@+id/iv_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@color/cardview_dark_background"
                 android:scaleType="fitXY"
                 android:src="@drawable/elephant" />
-
-            <mobile.uz.dynamic_image_drawing.DynamicImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -61,14 +55,13 @@
                 android:textStyle="bold"
                 tools:listitem="@layout/support_simple_spinner_dropdown_item" />
 
-            <ImageView
+            <mobile.uz.dynamic_image_drawing.MyImageView
                 android:id="@+id/iv_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:background="@color/cardview_dark_background"
                 android:scaleType="fitXY"
                 android:src="@drawable/elephant" />
 
